@@ -20,7 +20,7 @@ class Contact(models.Model):
   last_name = models.CharField(max_length=255, verbose_name='Apellido')
   birth_date = models.DateField(verbose_name='Fec. Nac.')
   picture = thumbs.ImageWithThumbsField(upload_to="pictures", sizes=((50,50), (125,125), (200,200), (300,300)), verbose_name='Foto')
-  email = models.EmailField(verbose_name='Correo')
+  email = models.EmailField(verbose_name='Correo', unique=True)
   phone = models.CharField(max_length=10, verbose_name='Teléfono')
   mobile = models.CharField(max_length=10, verbose_name='Celular')
   street = models.CharField(max_length=255, verbose_name='Calle')
