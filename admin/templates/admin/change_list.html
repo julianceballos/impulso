@@ -91,7 +91,14 @@
           {% result_list cl %}
           {% if action_form and actions_on_bottom and cl.full_result_count %}{% admin_actions %}{% endif %}
       {% endblock %}
-      {% block pagination %}{% pagination cl %}{% endblock %}
+      {% block pagination %}
+        {% pagination cl %}
+        {% if request.path == '/admin/impulso/contact/' %}
+        <div style="width:270px; float:right; margin-top: -28px;">
+          <a href="/admin/impulso/contacts/upload/" style="background: #417690; padding: 4px 8px; color: white; border-radius: 15px;">Subir contactos</a>
+        </div>
+        {% endif %}
+      {% endblock %}
       </form>
     </div>
   </div>

@@ -1,0 +1,6 @@
+<form action="/admin/impulso/contacts/upload/" method="post" enctype="multipart/form-data">
+  <p>Selecciona el archivo csv con la lista de contactos a importar.</p>
+  {% csrf_token %}
+  <p><input type="file" name="csv"></p>
+  <p><button type="submit">Cargar contactos</button></p>
+</form>

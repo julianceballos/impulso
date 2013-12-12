@@ -2,7 +2,7 @@
 #encoding: utf-8
 
 from django.contrib import admin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 import csv
 
@@ -32,9 +32,10 @@ contact_admin_actions = [verify_all, export]
 
 class ContactAdmin(admin.ModelAdmin):
 
-  list_display = ('first_name', 'last_name', 'email', 'birth_date', 'colony', 'state', 'country', 'zip_code', 'verified')
+  list_display = ('first_name', 'last_name', 'email', 'birth_date', 'colony', 'state', 'zip_code', 'verified')
   list_display_links = ('first_name', 'last_name', 'email')
   list_filter = ('verified', 'city', 'colony', ('group', UnionFieldListFilter))
+  search_fields = ('first_name', 'last_name', 'email')
   actions = contact_admin_actions
 
 class GroupAdmin(admin.ModelAdmin):
@@ -44,8 +45,6 @@ class GroupAdmin(admin.ModelAdmin):
 admin.site.register(Contact, ContactAdmin)
 
 admin.site.register(Group)
-
-admin.site.disable_action('delete_selected')
 
 from django.contrib.sites.models import Site
 
