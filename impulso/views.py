@@ -35,7 +35,7 @@ def upload_contacts(request):
         )
         contact.save()
         if len(row[9]) > 0:
-          for group in Group.objects.filter(id__in=row[9].split('-')):
+          for group in Group.objects.filter(id__in=row[9].split(' ')):
             contact.group.add(group)
         contact.save()
       count+=1
