@@ -1,6 +1,26 @@
-<form action="/admin/impulso/contacts/upload/" method="post" enctype="multipart/form-data">
-  <p>Selecciona el archivo csv con la lista de contactos a importar.</p>
-  {% csrf_token %}
-  <p><input type="file" name="csv"></p>
-  <p><button type="submit">Cargar contactos</button></p>
-</form>
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+{{ media }}
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />{% endblock %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <H1>Importar contactos.</H1>
+  <form action="/admin/impulso/contacts/upload/" method="post" enctype="multipart/form-data" class="module aligned">
+    {% csrf_token %}
+    <br>
+    <p>Selecciona el archivo csv con los contactos a importar:</p>
+    <p><input type="file" name="csv" required></p>
+    <p><button type="submit" style="background: #417690; padding: 4px 8px; color: white; border-radius: 15px; border: none;">Cargar contactos</button></p>
+  </form>
+<div>
+{% endblock %}
