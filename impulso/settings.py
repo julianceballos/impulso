@@ -8,7 +8,7 @@ PROJECT_DIR = os.path.abspath(os.path.dirname('__file__'))
 
 path = lambda *args: os.path.join(PROJECT_DIR, *args)
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
