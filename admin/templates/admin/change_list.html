@@ -70,6 +70,11 @@
     {% endif %}
     <div class="module{% if cl.has_filters %} filtered{% endif %}" id="changelist">
       {% block search %}{% search_form cl %}{% endblock %}
+      {% if request.path == '/admin/impulso/contact/' %}
+        <div style="width:270px; float:right; margin-top: -22px;">
+          <a href="/admin/impulso/contacts/upload/" style="background: #417690; padding: 4px 8px; color: white; border-radius: 15px;">Subir contactos</a>
+        </div>
+      {% endif %}
       {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
 
       {% block filters %}
@@ -93,11 +98,6 @@
       {% endblock %}
       {% block pagination %}
         {% pagination cl %}
-        {% if request.path == '/admin/impulso/contact/' %}
-        <div style="width:270px; float:right; margin-top: -28px;">
-          <a href="/admin/impulso/contacts/upload/" style="background: #417690; padding: 4px 8px; color: white; border-radius: 15px;">Subir contactos</a>
-        </div>
-        {% endif %}
       {% endblock %}
       </form>
     </div>

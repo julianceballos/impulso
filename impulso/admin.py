@@ -32,7 +32,7 @@ contact_admin_actions = [verify_all, export]
 
 class ContactAdmin(admin.ModelAdmin):
 
-  list_display = ('first_name', 'last_name', 'email', 'birth_date', 'colony', 'state', 'zip_code', 'verified')
+  list_display = ('first_name', 'last_name', 'email', 'birth_date', 'colony', 'state', 'zip_code', 'verified', 'group_list')
   list_display_links = ('first_name', 'last_name', 'email')
   list_filter = ('verified', 'city', 'colony', ('group', UnionFieldListFilter))
   search_fields = ('first_name', 'last_name', 'email')

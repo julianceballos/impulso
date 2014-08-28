@@ -34,5 +34,11 @@ class Contact(models.Model):
   created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
   updated_at = models.DateTimeField(auto_now=True, verbose_name='Fecha de actualización')
 
+  def group_list(self):
+    out = ''
+    for group in self.group.all():
+      out += group.name + ', '
+    return out[0: len(out) - 2]
+
   def __unicode__(self):
     return self.first_name + ' ' + self.last_name
