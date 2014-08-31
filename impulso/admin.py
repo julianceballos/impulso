@@ -43,7 +43,7 @@ class ContactAdmin(admin.ModelAdmin):
   actions = contact_admin_actions
 
   def options(self, obj):
-    return u"<p><a style='background: #417690; padding: 4px 8px; color: white; border-radius: 15px;' href='/admin/impulso/contact/" + str(obj.id) + "/view'>Ver</a></p> <p><a style='background: #417690; padding: 4px 8px; color: white; border-radius: 15px;' href='/admin/impulso/contact/" + str(obj.id) + "'>Editar</a></p>"
+    return u"<p style='width: 100px; margin-bottom: 10px;'><a style='background: #417690; padding: 4px 8px; color: white; border-radius: 15px;' href='/admin/impulso/contact/" + str(obj.id) + "/view'>Ver contacto</a></p> <p><a style='background: #417690; padding: 4px 8px; color: white; border-radius: 15px;' href='/admin/impulso/contact/" + str(obj.id) + "'>Editar contacto</a></p>"
 
   options.allow_tags = True
 
