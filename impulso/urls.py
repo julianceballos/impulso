@@ -8,10 +8,11 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-from views import IndexRedirect, upload_contacts
+from views import IndexRedirect, upload_contacts, view_contact
 
 urlpatterns = patterns('',
     (r'^$', IndexRedirect),
+    (r'^admin/impulso/contact/(\d+)/view/$', view_contact),
     (r'^admin/', include(admin.site.urls)),
     (r'^admin/impulso/contacts/upload/$', upload_contacts),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

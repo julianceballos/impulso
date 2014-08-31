@@ -1,0 +1,87 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+{{ media }}
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />{% endblock %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <h1>
+        {{ contact.first_name }} {{ contact.last_name }}
+    </h1>
+    <hr>
+    <p>
+        <button type="button" style="background: #999; padding: 4px 8px; color: white; border-radius: 15px; border: none;" onclick="history.back()">Regresar</button>
+        <a type="button" style="background: #417690; padding: 4px 8px; color: white; border-radius: 15px;" href="/admin/impulso/contact/{{ contact.id }}">Editar</a>
+    </p>
+    <hr>
+    <p>
+        <strong>Nombre:</strong> {{ contact.first_name }}
+    </p>
+    <p>
+        <strong>Apellido:</strong> {{ contact.first_name }}
+    </p>
+    <p>
+        <strong>Apellido:</strong> {{ contact.first_name }}
+    </p>
+    <p>
+        <strong>Fecha de nacimiento:</strong> {{ contact.birth_date }}
+    </p>
+    <p>
+        <strong>Correo electrónico:</strong> {{ contact.email }}
+    </p>
+    <p>
+        <strong>Teléfono:</strong> {{ contact.phone }}
+    </p>
+    <p>
+        <strong>Celular:</strong> {{ contact.mobile }}
+    </p>
+    <p>
+        <strong>Dirección:</strong> {{ contact.address }}
+    </p>
+    <p>
+        <strong>Colonia:</strong> {{ contact.colony }}
+    </p>
+    <p>
+        <strong>Ciudad:</strong> {{ contact.city }}
+    </p>
+    <p>
+        <strong>Estado:</strong> {{ contact.state }}
+    </p>
+    <p>
+        <strong>Código postal:</strong> {{ contact.zip_code }}
+    </p>
+    <p>
+        <strong>Grupo:</strong>  {% for group in contact.group.all %}{{ group.name }}, {% endfor %}
+    </p>
+    <p>
+        <strong>Monto:</strong> {{ contact.amount }}
+    </p>
+    <p>
+        <strong>Tipo de pago:</strong> {{ contact.payment }}
+    </p>
+    <p>
+        <strong>Periodo de pago:</strong> {{ contact.period }}
+    </p>
+    <p>
+        <strong>RFC:</strong> {{ contact.tax_info }}
+    </p>
+    <p>
+        <strong>Verificado</strong> {{ contact.verified }}
+    </p>
+    <p>
+        <strong>Fecha de creación:</strong>  {{ contact.created_at }}
+    </p>
+    <p>
+        <strong>Fecha de actualización:</strong>  {{ contact.updated_at }}
+    </p>
+<div>
+{% endblock %}
